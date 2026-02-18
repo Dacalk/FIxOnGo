@@ -4,9 +4,6 @@
 **Group 01 – Mobile Application Development Project**  
 **NSBM Green University Town**
 
-![FixOnGo Hero](https://via.placeholder.com/1200x600/000000/FFFFFF?text=FixOnGo+Hero+Image+-+Car+on+Road+with+Assistance+Icons)  
-*(Replace with actual hero/cover image from proposal – car on road, map pin, mechanic tools)*
-
 **Help when you need it most.**
 
 FixOnGo is a cross-platform mobile application built with **Flutter** that provides fast, reliable, and intelligent roadside assistance for vehicle breakdowns. It combines AI-powered troubleshooting, real-time GPS tracking, verified mechanic requests, tool/spare-part delivery, call center support, in-app chat, and secure payments — all designed to reduce stress and waiting time during emergencies.
@@ -110,24 +107,6 @@ FixOnGo/
 - Android emulator/device: `flutter run`
 - iOS simulator/device: `flutter run`
 
-## 🎨 Screenshots (Dark & Light Themes)
-
-### Splash & Onboarding
-![Splash Dark](https://via.placeholder.com/300x600/111111/FFFFFF?text=Dark+Splash) ![Splash Light](https://via.placeholder.com/300x600/FFFFFF/000000?text=Light+Splash)
-
-### Home Dashboard – Get Help Now
-![Home Dark](https://via.placeholder.com/300x600/111111/FFFFFF?text=Dark+Home) ![Home Light](https://via.placeholder.com/300x600/FFFFFF/000000?text=Light+Home)
-
-### AI Assistant Chat
-![AI Dark](https://via.placeholder.com/300x600/111111/FFFFFF?text=Dark+AI+Chat) ![AI Light](https://via.placeholder.com/300x600/FFFFFF/000000?text=Light+AI+Chat)
-
-### Map & Mechanic Selection
-![Map Dark](https://via.placeholder.com/300x600/111111/FFFFFF?text=Dark+Map) ![Map Light](https://via.placeholder.com/300x600/FFFFFF/000000?text=Light+Map)
-
-### Live Tracking & Payment
-![Tracking Dark](https://via.placeholder.com/300x600/111111/FFFFFF?text=Dark+Tracking) ![Payment Light](https://via.placeholder.com/300x600/FFFFFF/000000?text=Light+Payment)
-
-*(Replace placeholder URLs with actual screenshots from proposal pages 7–13 or exported from Figma/Flutter)*
 
 ## 🔐 Security & Best Practices
 - Firebase Authentication + OTP/social login
