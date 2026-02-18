@@ -1,99 +1,142 @@
-# FixOnGo - On-Road Vehicle Breakdown Assistant
+# FixOnGo – On-Road Vehicle Breakdown Assistant
 
-<p align="center">
-  <img src="https://via.placeholder.com/800x400/0D47A1/FFFFFF?text=FixOnGo+-+Roadside+Assistance+App" alt="FixOnGo Banner" width="800"/>
-</p>
+**Mobile Application**  
+**Group 01 – Mobile Application Development Project**  
+**NSBM Green University Town**
 
-<p align="center">
-  <strong>A smart mobile application that provides instant roadside assistance using AI guidance, location-based mechanic requests, tool delivery, real-time tracking, and secure payments.</strong>
-</p>
+![FixOnGo Hero](https://via.placeholder.com/1200x600/000000/FFFFFF?text=FixOnGo+Hero+Image+-+Car+on+Road+with+Assistance+Icons)  
+*(Replace with actual hero/cover image from proposal – car on road, map pin, mechanic tools)*
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white" alt="Flutter"/>
-  <img src="https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black" alt="Firebase"/>
-  <img src="https://img.shields.io/badge/Google%20Maps-4285F4?style=for-the-badge&logo=googlemaps&logoColor=white" alt="Google Maps"/>
-  <img src="https://img.shields.io/badge/Status-Project%20Proposal-blue?style=for-the-badge" alt="Status"/>
-</p>
+**Help when you need it most.**
 
-## 📖 Project Overview
+FixOnGo is a cross-platform mobile application built with **Flutter** that provides fast, reliable, and intelligent roadside assistance for vehicle breakdowns. It combines AI-powered troubleshooting, real-time GPS tracking, verified mechanic requests, tool/spare-part delivery, call center support, in-app chat, and secure payments — all designed to reduce stress and waiting time during emergencies.
 
-**FixOnGo** is a cross-platform mobile application developed for drivers facing on-road vehicle breakdowns. It combines **AI-powered troubleshooting**, **GPS location services**, **mechanic & tool requests**, **real-time tracking**, **in-app chat**, **call center support**, and **secure digital payments** to deliver fast, reliable, and stress-free roadside assistance.
+## ✨ Features
 
-Developed as a **Mobile Application Development** group project (Group 01) at **NSBM Green University Town**.
+### Core Assistance
+- **24/7 AI Assistant** – Rule-based chatbot offering step-by-step guidance for common issues (battery, tire, fuel, overheating, etc.)
+- **Real-time GPS & Mapping** – Automatic location detection + interactive map showing nearby mechanics, towing, and fuel services
+- **Mechanic & Tool Request** – Request verified professionals or get tools/spare parts delivered with ETA and cost preview
+- **Live Tracking** – Track mechanic arrival and delivery on the map in real time
+- **In-App Chat** – Direct messaging with mechanics/service providers + image sharing (e.g., photos of issues)
+- **Call Center / Emergency Support** – One-tap connection to human experts or emergency numbers
 
-## ✨ Key Features
+### User Experience & Trust
+- Beautiful **Dark & Light** themes
+- Secure user registration & profile (with vehicle details)
+- Verified service provider database with ratings & reviews
+- Transparent pricing & secure digital payments
+- Real-time notifications & status updates
 
-- **User-Friendly Interface** — Intuitive design with light & dark themes
-- **AI-Based Breakdown Assistance** — 24/7 rule-based chatbot for common issues (battery, tire, fuel, overheating, etc.)
-- **Location Tracking & Mapping** — Real-time GPS + Google Maps showing nearby mechanics
-- **Mechanic & Tool Request System** — Request verified professionals or spare parts/tools with ETA & cost estimation
-- **Call Center Support** — Direct in-app connection to expert guidance
-- **In-App Communication** — Real-time chat between users and service providers
-- **Payment Gateway Integration** — Secure payments (PayHere / Stripe) with transparent pricing
-- **Service Provider Database** — Verified mechanics, garages, towing services with ratings & reviews
+## 🛠️ Technology Stack
 
-## 🚫 Out of Scope (as per proposal)
+| Layer          | Technology                          | Purpose                                      |
+|----------------|-------------------------------------|----------------------------------------------|
+| Frontend       | Flutter (Dart)                      | Cross-platform UI (Android + iOS)            |
+| State Management | Provider / Riverpod (recommended) | Efficient & scalable state handling          |
+| Backend        | Firebase / Node.js                  | Authentication, real-time database, functions|
+| Database       | Firebase Firestore / MySQL          | User data, requests, chats, providers        |
+| Maps & Location| Google Maps Flutter + Geocoding API | Real-time mapping & distance calculation     |
+| AI Assistant   | Rule-based logic (future ML upgrade)| Instant troubleshooting guidance             |
+| Payments       | PayHere (Sri Lanka) / Stripe        | Secure transactions & receipts               |
+| Authentication | Firebase Auth                       | Email, OTP, Google/Apple sign-in             |
+| Notifications  | Firebase Cloud Messaging (FCM)      | Push notifications                           |
 
-- Physical repair operations
-- Advanced hardware-based diagnostics
-- Insurance claim handling
-- International assistance
+## 📂 Project Structure (Recommended)
 
-## 🛠 Technology Stack
+```text
+FixOnGo/
+├── lib/
+│   ├── core/               # constants, themes, routes, utils, extensions
+│   ├── features/
+│   │   ├── auth/           # login, register, profile, vehicle details
+│   │   ├── home/           # dashboard with "GET HELP NOW"
+│   │   ├── ai_assistant/   # chatbot screen & logic
+│   │   ├── map/            # live map & tracking
+│   │   ├── request/        # mechanic/tool request flows
+│   │   ├── chat/           # real-time messaging
+│   │   ├── payment/        # checkout & receipts
+│   │   └── emergency/      # call center & emergency contacts
+│   ├── models/             # data classes (User, Request, Provider, etc.)
+│   ├── services/           # firebase, maps, payment, location services
+│   ├── widgets/            # reusable UI components
+│   └── main.dart
+├── assets/
+│   ├── images/             # icons, illustrations, car photos
+│   └── fonts/
+├── test/                   # unit & widget tests
+├── firebase.json           # Firebase config
+├── pubspec.yaml
+└── README.md
+```
 
-| Layer          | Technology                          | Purpose                              |
-|----------------|-------------------------------------|--------------------------------------|
-| Frontend       | Flutter                             | Cross-platform mobile UI             |
-| Backend        | Firebase / Node.js                  | Server logic & APIs                  |
-| Database       | Firebase Firestore / MySQL          | Data storage                         |
-| Authentication | Firebase Authentication             | Secure user login                    |
-| Maps           | Google Maps API                     | Location, routing & nearby search    |
-| AI Assistant   | Rule-based chatbot                  | Basic troubleshooting (future ML)    |
-| Payments       | PayHere / Stripe                    | Secure transactions                  |
+## 🚀 Getting Started
 
-## 🎨 Screenshots
+### Prerequisites
+- Flutter SDK ≥ 3.24
+- Dart ≥ 3.5
+- Android Studio / Xcode
+- Firebase project configured
+- Google Maps API key
+- PayHere / Stripe test keys
 
-### Splash & Onboarding (Light / Dark Themes)
+### Installation
 
-<!-- You should replace these with actual image paths once uploaded to the repo -->
+1. Clone the repository
+   ```bash
+   git clone https://github.com/yourusername/FixOnGo.git
+   cd FixOnGo
+   ```
 
-<p float="left">
-  <img src="screenshots/splash_light.png" width="200" alt="Splash Light"/>
-  <img src="screenshots/splash_dark.png" width="200" alt="Splash Dark"/>
-  <img src="screenshots/onboarding_light.png" width="200" alt="Onboarding Light"/>
-  <img src="screenshots/onboarding_dark.png" width="200" alt="Onboarding Dark"/>
-</p>
+2. Install dependencies
+   ```bash
+   flutter pub get
+   ```
 
-### Home & Assistance Options
+3. Configure Firebase
+   - Add `google-services.json` → `android/app/`
+   - Add `GoogleService-Info.plist` → `ios/Runner/`
 
-<p float="left">
-  <img src="screenshots/home_light.png" width="200" alt="Home Light"/>
-  <img src="screenshots/home_dark.png" width="200" alt="Home Dark"/>
-</p>
+4. Add Google Maps API key
+   - Android: `android/app/src/main/AndroidManifest.xml`
+   - iOS: `ios/Runner/Info.plist`
 
-### Mechanic Selection & Tracking
+5. Run the app
+   ```bash
+   flutter run
+   ```
 
-<p float="left">
-  <img src="screenshots/mechanic_map_light.png" width="200" alt="Mechanic Map Light"/>
-  <img src="screenshots/tracking_light.png" width="200" alt="Tracking Light"/>
-</p>
+**Default run targets**:
+- Android emulator/device: `flutter run`
+- iOS simulator/device: `flutter run`
 
-### Chat & Payment Screens
+## 🎨 Screenshots (Dark & Light Themes)
 
-<p float="left">
-  <img src="screenshots/chat_light.png" width="200" alt="Chat Light"/>
-  <img src="screenshots/payment_light.png" width="200" alt="Payment Light"/>
-</p>
+### Splash & Onboarding
+![Splash Dark](https://via.placeholder.com/300x600/111111/FFFFFF?text=Dark+Splash) ![Splash Light](https://via.placeholder.com/300x600/FFFFFF/000000?text=Light+Splash)
 
-> More wireframes and high-fidelity mockups are available in the [project proposal PDF](MAD%20project%20Proposal%20Group%2001.pdf).
+### Home Dashboard – Get Help Now
+![Home Dark](https://via.placeholder.com/300x600/111111/FFFFFF?text=Dark+Home) ![Home Light](https://via.placeholder.com/300x600/FFFFFF/000000?text=Light+Home)
 
-## 📋 Project Proposal
+### AI Assistant Chat
+![AI Dark](https://via.placeholder.com/300x600/111111/FFFFFF?text=Dark+AI+Chat) ![AI Light](https://via.placeholder.com/300x600/FFFFFF/000000?text=Light+AI+Chat)
 
-Full project proposal including problem definition, objectives, scope, solution overview, and detailed wireframes:
+### Map & Mechanic Selection
+![Map Dark](https://via.placeholder.com/300x600/111111/FFFFFF?text=Dark+Map) ![Map Light](https://via.placeholder.com/300x600/FFFFFF/000000?text=Light+Map)
 
-📄 [MAD project Proposal Group 01.pdf](MAD%20project%20Proposal%20Group%2001.pdf)
+### Live Tracking & Payment
+![Tracking Dark](https://via.placeholder.com/300x600/111111/FFFFFF?text=Dark+Tracking) ![Payment Light](https://via.placeholder.com/300x600/FFFFFF/000000?text=Light+Payment)
 
-## 👥 Team Members – Group 01
+*(Replace placeholder URLs with actual screenshots from proposal pages 7–13 or exported from Figma/Flutter)*
+
+## 🔐 Security & Best Practices
+- Firebase Authentication + OTP/social login
+- Secure token handling & HTTPS
+- Input validation & rate limiting
+- Verified provider onboarding
+- Data encryption for chats & payments
+
+## 👥 Team – Group 01
 
 | Name                  | Student ID |
 |-----------------------|------------|
@@ -106,20 +149,10 @@ Full project proposal including problem definition, objectives, scope, solution 
 | GGAKG Gurulumulla     | 32243      |
 | AMVLB Athauda         | 33076      |
 
-## 📌 Future Enhancements (Potential)
-
-- Machine learning powered AI diagnostics
-- Integration with vehicle OBD-II readers
-- Multi-language support
-- Push notifications for service updates
-- Admin panel for service providers
-
-## ⚖️ License
-
-This project is created for academic purposes as part of the Mobile Application Development module at NSBM Green University Town.
-
-No commercial use without permission.
+## 📄 License
+This project is developed as part of the Mobile Application Development course at NSBM Green University Town.  
+All rights reserved © 2025/2026 – Group 01
 
 ---
 
-Made with ❤️ by **FixOnGo Team** • 2026
+**FixOnGo** – Because breakdowns shouldn't leave you stranded.
