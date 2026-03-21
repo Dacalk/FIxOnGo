@@ -26,7 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
   void _onGetOtp() {
     final error =
         PhoneInput.validateSriLankanPhone(_phoneController.text);
-    setState(() => _phoneError = error);
+        setState(() => _phoneError = error);
 
     if (error == null) {
       // Phone is valid — navigate to verification, pass role + phone
