@@ -42,6 +42,73 @@ class _AiChatScreenState extends State<AiChatScreen> {
 
 }
 
+  @override
+  void initState() {
+    super.initState();
+    _geminiService = GeminiService();
+  }
+
+  @override
+  void dispose() {
+    _messageController.dispose();
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  void _sendMessage() async {
+    final text = _messageController.text.trim();
+    if (text.isEmpty || _isLoading) return;
+
+    final userMessage = ChatMessage(
+      text: text,
+      time: DateFormat('hh:mm a').format(DateTime.now()),
+      isUser: true,
+    );
+
+    setState(() {
+      _messages.add(userMessage);
+      _isLoading = true;
+    });
+
+    _messageController.clear();
+    _scrollToBottom();
+
+    try {
+      final aiResponse = await _geminiService.sendMessage(text);
+
+      setState(() {
+        _messages.add(
+          ChatMessage(
+            text: aiResponse,
+            time: DateFormat('hh:mm a').format(DateTime.now()),
+            isUser: false,
+          ),
+        );
+        _isLoading = false;
+      });
+      _scrollToBottom();
+    } catch (e) {
+      setState(() {
+        _isLoading = false;
+      });
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text('Error: $e')));
+    }
+  }
+
+  void _scrollToBottom() {
+    Future.delayed(const Duration(milliseconds: 100), () {
+      if (_scrollController.hasClients) {
+        _scrollController.animateTo(
+          _scrollController.position.maxScrollExtent,
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeOut,
+        );
+      }
+    });
+  }
+
 @override
   Widget build(BuildContext context) {
     final dark = isDarkMode(context);
