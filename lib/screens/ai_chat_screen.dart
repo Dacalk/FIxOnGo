@@ -50,6 +50,68 @@ class _AiChatScreenState extends State<AiChatScreen> {
 
     return Scaffold(
         darkBackgroundColor: bgColor,
-        appBar: AppBar()
+        appBar: AppBar(backgroundColor: appBarBg,
+        elevation: 0.5,
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back,
+            color: dark ? Colors.white : Colors.black,
+          ),
+          onPressed: () => Navigator.pop(context),
+        ),
+        title: Row(
+          children: [
+            // Bot avatar
+            Container(
+              width: 40,
+              height: 40,
+              decoration: BoxDecoration(
+                color: AppColors.primaryBlue,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: const Icon(Icons.smart_toy, color: Colors.white, size: 22),
+            ),
+            const SizedBox(width: 12),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Roadside AI Assistant',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: dark ? Colors.white : Colors.black,
+                  ),
+                ),
+                Row(
+                  children: [
+                    Container(
+                      width: 8,
+                      height: 8,
+                      decoration: const BoxDecoration(
+                        color: Colors.green,
+                        shape: BoxShape.circle,
+                      ),
+                    ),
+                    const SizedBox(width: 4),
+                    Text(
+                      'Online',
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: dark ? Colors.green[300] : Colors.green,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ],
+        ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.close, color: dark ? Colors.white : Colors.black),
+            onPressed: () => Navigator.pop(context),
+          ),
+        ],),
             );
   }
