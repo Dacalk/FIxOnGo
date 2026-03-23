@@ -2,11 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../theme_provider.dart';
 
-/// A row of 4 OTP input fields that support:
-///  • Typing one digit per box (auto-advances to the next)
-///  • Backspace to go back to the previous box
-///  • Pasting a full 4-digit code (distributes digits across boxes)
-///
 /// Returns the complete OTP string via [onCompleted] when all 4 digits are filled.
 class OtpInput extends StatefulWidget {
   final int length;
