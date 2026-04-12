@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import '../theme_provider.dart';
 
-
+/// Payment History screen — view past transactions.
+/// Linked from the Bottom Navigation Bar 'Payment' tab.
 class PaymentHistoryScreen extends StatelessWidget {
   const PaymentHistoryScreen({super.key});
 
@@ -132,7 +133,7 @@ class PaymentHistoryScreen extends StatelessWidget {
 
                   const SizedBox(height: 24),
 
-                  
+                  // ── Filters & Headers ──
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -180,7 +181,7 @@ class PaymentHistoryScreen extends StatelessWidget {
 
                   const SizedBox(height: 16),
 
-                  
+                  // ── Group: February 2026 ──
                   _buildMonthHeader('February 2026', titleColor),
                   _buildTransactionCard(
                     icon: Icons.build,
@@ -199,7 +200,7 @@ class PaymentHistoryScreen extends StatelessWidget {
 
                   const SizedBox(height: 24),
 
-                  
+                  // ── Group: November 2025 ──
                   _buildMonthHeader('November 2025', titleColor),
                   _buildTransactionCard(
                     icon: Icons.car_repair,
@@ -218,7 +219,7 @@ class PaymentHistoryScreen extends StatelessWidget {
 
                   const SizedBox(height: 24),
 
-                  
+                  // ── Group: October 2025 ──
                   _buildMonthHeader('October 2025', titleColor),
                   _buildTransactionCard(
                     icon: Icons.build,
@@ -241,7 +242,7 @@ class PaymentHistoryScreen extends StatelessWidget {
             ),
           ),
 
-          
+          // ── Bottom Navigation Bar ──
           _buildBottomNav(context, dark),
         ],
       ),
@@ -336,7 +337,7 @@ class PaymentHistoryScreen extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(height: 6),
-                    
+                    // Date & Vehicle & Status
                     Wrap(
                       crossAxisAlignment: WrapCrossAlignment.center,
                       spacing: 6,
@@ -388,7 +389,7 @@ class PaymentHistoryScreen extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 20),
-          
+          // Divider space for lower section
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -467,22 +468,36 @@ class PaymentHistoryScreen extends StatelessWidget {
           children: [
             _navItem(
               context,
-              Icons.home,
+              Icons.home_rounded,
               'Dashboard',
               false,
               dark,
               '/dashboard',
             ),
-            _navItem(context, Icons.garage, 'Garage', false, dark, '/garage'),
             _navItem(
               context,
-              Icons.payments,
+              Icons.garage_rounded,
+              'Garage',
+              false,
+              dark,
+              '/garage',
+            ),
+            _navItem(
+              context,
+              Icons.payments_rounded,
               'Payment',
               true,
               dark,
               '/payment-history',
-            ), // Active state
-            _navItem(context, Icons.person, 'Profile', false, dark, '/profile'),
+            ),
+            _navItem(
+              context,
+              Icons.person_rounded,
+              'Profile',
+              false,
+              dark,
+              '/profile',
+            ),
           ],
         ),
       ),

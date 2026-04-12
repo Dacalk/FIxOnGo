@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import '../theme_provider.dart';
 
+/// Reusable dashboard header with greeting, avatar, and role-specific info.
 class DashboardHeader extends StatelessWidget {
   final String userName;
   final String role;
   final String? vehicleInfo;
   final String? statusText;
+  final String? photoUrl;
 
   const DashboardHeader({
     super.key,
@@ -13,11 +15,11 @@ class DashboardHeader extends StatelessWidget {
     required this.role,
     this.vehicleInfo,
     this.statusText,
+    this.photoUrl,
   });
 
   @override
   Widget build(BuildContext context) {
-    // FIXED: Removed extra semicolon inside the parentheses
     final dark = isDarkMode(context);
 
     return Container(
@@ -39,39 +41,46 @@ class DashboardHeader extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          // Top row: avatar + greeting + theme toggle
           Row(
             children: [
+              // Avatar
               CircleAvatar(
                 radius: 26,
-                backgroundColor:
-                    dark ? AppColors.darkSurface : Colors.blue[100],
-                child: Icon(
-                  _roleIcon(),
-                  color: dark ? AppColors.brandYellow : AppColors.primaryBlue,
-                  size: 28,
-                ),
+                backgroundColor: dark
+                    ? AppColors.darkSurface
+                    : Colors.blue[100],
+                backgroundImage: photoUrl != null && photoUrl!.isNotEmpty
+                    ? NetworkImage(photoUrl!)
+                    : null,
+                child: photoUrl == null || photoUrl!.isEmpty
+                    ? Icon(
+                        _roleIcon(),
+                        color: dark
+                            ? AppColors.brandYellow
+                            : AppColors.primaryBlue,
+                        size: 28,
+                      )
+                    : null,
               ),
               const SizedBox(width: 14),
-
+              // Greeting
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       'WELCOME BACK',
-                      // FIXED: Typo 'TexStyle' to 'TextStyle'
                       style: TextStyle(
                         fontSize: 11,
-                        // FIXED: Capitalized 'FontWeight'
                         fontWeight: FontWeight.w600,
                         color: dark
                             ? AppColors.brandYellow
                             : AppColors.primaryBlue,
-                        letterSpacing: 1.2, // ADDED: Missing from snippet 2
+                        letterSpacing: 1.2,
                       ),
                     ),
                     const SizedBox(height: 2),
-                    // ADDED: Missing 'Hello' text from snippet 2
                     Text(
                       'Hello, $userName',
                       style: TextStyle(
@@ -83,7 +92,7 @@ class DashboardHeader extends StatelessWidget {
                   ],
                 ),
               ),
-              // ADDED: Missing theme toggle buttons from snippet 2
+              // Theme toggle buttons
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 4),
                 decoration: BoxDecoration(
@@ -95,6 +104,7 @@ class DashboardHeader extends StatelessWidget {
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
+                    // Sun → Light mode
                     GestureDetector(
                       onTap: () {
                         if (dark) toggleTheme();
@@ -115,6 +125,7 @@ class DashboardHeader extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 2),
+                    // Moon → Dark mode
                     GestureDetector(
                       onTap: () {
                         if (!dark) toggleTheme();
@@ -141,7 +152,7 @@ class DashboardHeader extends StatelessWidget {
           ),
           const SizedBox(height: 14),
 
-          // ADDED: Missing Status Row from snippet 2
+          // Status row
           Row(
             children: [
               Expanded(
@@ -169,10 +180,14 @@ class DashboardHeader extends StatelessWidget {
                   ),
                 ),
               ),
+
+              // Vehicle / business info badge
               if (vehicleInfo != null)
                 Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 6,
+                  ),
                   decoration: BoxDecoration(
                     color: dark ? AppColors.darkSurface : Colors.white,
                     borderRadius: BorderRadius.circular(20),
@@ -183,10 +198,7 @@ class DashboardHeader extends StatelessWidget {
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text(
-                        _badgeEmoji(),
-                        style: const TextStyle(fontSize: 14),
-                      ),
+                      Text(_badgeEmoji(), style: const TextStyle(fontSize: 14)),
                       const SizedBox(width: 6),
                       Text(
                         vehicleInfo!,
@@ -203,10 +215,9 @@ class DashboardHeader extends StatelessWidget {
           ),
         ],
       ),
-    ); // FIXED: Added missing semicolon
+    );
   }
 
-  // ADDED: Missing helper methods from snippet 2
   IconData _roleIcon() {
     switch (role) {
       case 'Mechanic':
