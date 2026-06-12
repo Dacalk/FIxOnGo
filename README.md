@@ -1,9 +1,5 @@
 # FixOnGo – On-Road Vehicle Breakdown Assistant
 
-**Mobile Application**  
-**Group 01 – Mobile Application Development Project**  
-**NSBM Green University Town**
-
 **Help when you need it most.**
 
 FixOnGo is a cross-platform mobile application built with **Flutter** that provides fast, reliable, and intelligent roadside assistance for vehicle breakdowns. It combines AI-powered troubleshooting, real-time GPS tracking, verified mechanic requests, tool/spare-part delivery, call center support, in-app chat, and secure payments — all designed to reduce stress and waiting time during emergencies.
@@ -129,8 +125,7 @@ FixOnGo/
 | AMVLB Athauda         | 33076      |
 
 ## 📄 License
-This project is developed as part of the Mobile Application Development course at NSBM Green University Town.  
-All rights reserved © 2025/2026 – Group 01
+All rights reserved © 2025/2026 
 
 ---
 
